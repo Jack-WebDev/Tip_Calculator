@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="stylesheet" href="css/tip.css">
+    <script defer src="tip.js"></script>
+    <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+    <div class="main-container">
+
+        <div class="logo">
+            <img src="images/logo.svg" alt="logo">
+        </div>
+        
+
+        <div class="main-content">
+            <div class="left-content">
+                <div class="bill">
+                    <label for="bill_input">Bill</label>
+                    <input type="text" name="bill_input" id="bill_input" value="0" required>
+                    <small></small>
+                </div>
+    
+                <div class="tip_calc">
+                    <h3>Select Tip %</h3>
+    
+                    <div class="btns">
+                        <button type="submit" class="btn btn-1" value="5">5%</button>
+                        <button type="submit" class="btn btn-2" value="10">10%</button>
+                        <button type="submit" class="btn btn-3" value="15">15%</button>
+                        <button type="submit" class="btn btn-4" value="25">25%</button>
+                        <button type="submit" class="btn btn-5" value="50">50%</button>
+                        <input type="text" name="custom" id="custom" placeholder="Custom">
+                    </div>
+                    
+                </div>
+    
+                <div class="people">
+                    <label for="people">Number of People</label><span class="icon"><img src="images/icon-person.svg" alt="icon-person"></span>
+                    <input type="text" name="people" id="people" value="1">
+                </div>
+            </div>
+
+            <div class="right-content">
+                <div class="tip-amount">
+                    <label for="tip_amount">Tip Amount</label>
+                    <h2 id="tip_amount">R0.00</h2>
+                </div>
+
+                <div class="total-amount">
+                    <label for="total_amount">Total Amount</label>
+                    <h2 id="total_amount">R0.00</h2> 
+                </div>
+
+                <button type="reset" class="btn-reset">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

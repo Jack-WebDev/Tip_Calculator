@@ -1,0 +1,756 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap");
+
+$StrongCyan: hsl(172, 67%, 45%);
+$VeryDarkCyan: hsl(183, 100%, 15%);
+$DarkGrayishCyan: hsl(186, 14%, 43%);
+$DarkGrayishCyan2: hsl(184, 14%, 56%);
+$LightGrayishCyan: hsl(185, 41%, 84%);
+$LightGrayishCyan: hsl(189, 41%, 97%);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Mono Space", monospace;
+}
+
+body {
+    background-color: hsla(172, 67%, 45%, 0.4);
+}
+
+.main-container {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  background-color: hsla(172, 67%, 45%, 0.4);
+
+  .logo {
+    margin: 5em 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .main-content {
+    background-color: #fff;
+    width: 100vw;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 1.5em;
+
+    .left-content {
+      .bill {
+        display: grid;
+        gap: 10px;
+        margin: 0 0 1.5em;
+        height: 15vh;
+        position: relative;
+
+        label {
+          color: $DarkGrayishCyan;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        #bill_input {
+          padding: 10px;
+          border: none;
+          background-color: $LightGrayishCyan;
+          cursor: pointer;
+          border-radius: 5px;
+          outline: none;
+        }
+        #bill_input::placeholder {
+          font-size: 20px;
+          padding-left: 10px;
+          font-weight: 600;
+        }
+        #bill_input:hover {
+          border: 2px solid $StrongCyan;
+        }
+        #bill_input[value^="0"] {
+          color: $DarkGrayishCyan;
+          font-size: 24px;
+          text-align: end;
+        }
+      }
+
+      .tip_calc {
+        h3 {
+          color: $DarkGrayishCyan;
+          font-size: 20px;
+          padding: 0 0 0.5em;
+          font-weight: 700;
+        }
+
+        .btns {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 10px 20px;
+          padding-bottom: 1em;
+
+          .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: $VeryDarkCyan;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 700;
+          }
+          .btn:hover {
+            background-color: $StrongCyan;
+            color: $VeryDarkCyan;
+          }
+
+          #custom {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: $LightGrayishCyan;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 700;
+            width: 43vw;
+            text-align: center;
+          }
+          #custom::placeholder {
+            text-transform: uppercase;
+            font-size: 1em;
+          }
+        }
+      }
+
+      .people {
+        display: grid;
+        padding: 0 0 1em;
+        gap: 10px;
+        height: 15vh;
+        position: relative;
+        margin: 1em 0 2em;
+
+        label {
+          color: $DarkGrayishCyan;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        .icon {
+          position: absolute;
+          top: 50px;
+          left: 10px;
+        }
+
+        input {
+          padding: 10px;
+          border: none;
+          background-color: $LightGrayishCyan;
+          cursor: pointer;
+          border-radius: 5px;
+          outline: none;
+        }
+        input:hover {
+          border: 2px solid $StrongCyan;
+        }
+        input::placeholder {
+          padding-left: 1em;
+          color: $DarkGrayishCyan;
+          font-size: 24px;
+        }
+        input[value^="1"] {
+          color: $DarkGrayishCyan;
+          font-size: 24px;
+          text-align: end;
+        }
+      }
+    }
+
+    .right-content {
+      background-color: $VeryDarkCyan;
+      display: grid;
+      padding: 2em 1em 2em;
+      border-radius: 20px;
+      gap: 35px;
+
+      .tip-amount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-bottom: 1em;
+
+        label {
+          color: #fff;
+          font-weight: 700;
+          cursor: text;
+        }
+
+        label::after {
+          content: "/ person";
+          position: absolute;
+          left: 1px;
+          top: 25px;
+          color: $DarkGrayishCyan2;
+        }
+
+        h2 {
+          width: 30%;
+          border: none;
+          color: $StrongCyan;
+        }
+      }
+
+      .total-amount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-bottom: 1em;
+
+        label {
+          color: #fff;
+          font-weight: 700;
+          cursor: text;
+        }
+
+        label::after {
+          content: "/ person";
+          position: absolute;
+          left: 1px;
+          top: 25px;
+          color: $DarkGrayishCyan2;
+        }
+
+        h2 {
+          width: 30%;
+          border: none;
+          color: $StrongCyan;
+        }
+      }
+
+      .btn-reset {
+        margin-top: 1em;
+        padding: 10px 0;
+        background-color: hsla(172, 67%, 45%, 0.5);
+        color: $VeryDarkCyan;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-reset:hover {
+        background-color: $StrongCyan;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .main-container {
+    display: grid;
+    place-content: center;
+    place-items: center;
+    padding-bottom: 5em;
+
+    .logo {
+      margin: 5em 0;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .main-content {
+      background-color: #fff;
+      width: 80vw;
+      border-radius: 20px;
+      padding: 1.5em;
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+
+      .left-content {
+          width: 100%;
+
+        .bill {
+          display: grid;
+          gap: 10px;
+          margin: 0 0 1.5em;
+          height: 15vh;
+          position: relative;
+
+          label {
+            color: $DarkGrayishCyan;
+            font-size: 20px;
+            font-weight: 700;
+          }
+
+          #bill_input::placeholder {
+            font-size: 20px;
+            padding-left: 0px;
+            font-weight: 600;
+          }
+          #bill_input {
+            padding: 10px;
+            border: none;
+            background-color: $LightGrayishCyan;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+            width: 35vw;
+          }
+          #bill_input:hover {
+            border: 2px solid $StrongCyan;
+          }
+        }
+
+        .tip_calc {
+          h3 {
+            color: $DarkGrayishCyan;
+            font-size: 20px;
+            padding: 0 0 0.5em;
+            font-weight: 700;
+          }
+
+          .btns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 10px;
+            padding-bottom: 1em;
+
+            .btn {
+              padding: 10px 20px;
+              border: none;
+              border-radius: 5px;
+              background-color: $VeryDarkCyan;
+              color: #fff;
+              cursor: pointer;
+              font-size: 20px;
+              font-weight: 700;
+            }
+            .btn:hover {
+              background-color: $StrongCyan;
+              color: $VeryDarkCyan;
+            }
+
+            #custom {
+              padding: 10px;
+              border: none;
+              border-radius: 5px;
+              background-color: $LightGrayishCyan;
+              cursor: pointer;
+              font-size: 16px;
+              font-weight: 700;
+              width: 11vw;
+              text-align: center;
+            }
+            #custom::placeholder {
+              text-transform: uppercase;
+              font-size: 1em;
+            }
+          }
+        }
+
+        .people {
+          display: grid;
+          padding: 0 0 1em;
+          gap: 10px;
+          height: 15vh;
+          position: relative;
+
+          label {
+            color: $DarkGrayishCyan;
+            font-size: 20px;
+            font-weight: 700;
+          }
+
+          .icon {
+            position: absolute;
+            top: 52px;
+            left: 10px;
+          }
+
+          input {
+            padding: 10px;
+            border: none;
+            background-color: $LightGrayishCyan;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+            width: 35vw;
+          }
+          input:hover {
+            border: 2px solid $StrongCyan;
+          }
+          input::placeholder {
+            padding-left: 1em;
+            color: $DarkGrayishCyan;
+            font-size: 24px;
+          }
+        }
+      }
+
+      .right-content {
+        background-color: $VeryDarkCyan;
+        display: grid;
+        padding: 1em 1em 2em;
+        border-radius: 20px;
+        width: 100%;
+
+        .tip-amount {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          margin-bottom: 1em;
+
+          label {
+            color: #fff;
+            font-weight: 700;
+            cursor: text;
+          }
+
+          label::after {
+            content: "/ person";
+            position: absolute;
+            left: 1px;
+            top: 50px;
+            color: $DarkGrayishCyan2;
+          }
+
+          input {
+            width: 50%;
+            padding: 10px 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+          }
+          input::placeholder {
+            position: absolute;
+            right: 0;
+            color: $StrongCyan;
+            font-size: 24px;
+          }
+        }
+
+        .total-amount {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          margin-bottom: 1em;
+
+          label {
+            color: #fff;
+            font-weight: 700;
+            cursor: text;
+          }
+
+          label::after {
+            content: "/ person";
+            position: absolute;
+            left: 1px;
+            top: 50px;
+            color: $DarkGrayishCyan2;
+          }
+
+          input {
+            width: 50%;
+            padding: 10px 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+          }
+          input::placeholder {
+            position: absolute;
+            right: 0;
+            color: $StrongCyan;
+            font-size: 24px;
+          }
+        }
+
+        .btn-reset {
+          margin-top: 1em;
+          padding: 0;
+          background-color: hsla(172, 67%, 45%, 0.5);
+          color: $VeryDarkCyan;
+          border: none;
+          border-radius: 5px;
+          font-size: 24px;
+          text-transform: uppercase;
+          font-weight: 700;
+          height: 8vh;
+        }
+        .btn-reset:hover {
+          background-color: $StrongCyan;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
+    .main-container {
+        display: grid;
+        place-content: center;
+        place-items: center;
+    
+        .logo {
+          margin: 5em 0;
+    
+          img {
+            width: 100%;
+          }
+        }
+    
+        .main-content {
+          background-color: #fff;
+          width: 60vw;
+          border-radius: 20px;
+          padding: 1.5em;
+          display: flex;
+          justify-content: space-around;
+          gap: 20px;
+    
+          .left-content {
+              width: 100%;
+    
+            .bill {
+              display: grid;
+              gap: 10px;
+              margin: 0 0 1.5em;
+              height: 15vh;
+              position: relative;
+    
+              label {
+                color: $DarkGrayishCyan;
+                font-size: 20px;
+                font-weight: 700;
+              }
+    
+              #bill_input::placeholder {
+                font-size: 20px;
+                padding-left: 0px;
+                font-weight: 600;
+              }
+              #bill_input {
+                padding: 10px;
+                border: none;
+                background-color: $LightGrayishCyan;
+                cursor: pointer;
+                border-radius: 5px;
+                outline: none;
+              }
+              #bill_input:hover {
+                border: 2px solid $StrongCyan;
+              }
+              #bill_input[value^="0"] {
+                color: $DarkGrayishCyan;
+                font-size: 24px;
+                text-align: end;
+                width: 26vw;
+              }
+            }
+    
+            .tip_calc {
+              h3 {
+                color: $DarkGrayishCyan;
+                font-size: 20px;
+                padding: 0 0 0.5em;
+                font-weight: 700;
+              }
+    
+              .btns {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 10px;
+                padding-bottom: 1em;
+    
+                .btn {
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 5px;
+                  background-color: $VeryDarkCyan;
+                  color: #fff;
+                  cursor: pointer;
+                  font-size: 20px;
+                  font-weight: 700;
+                }
+                .btn:hover {
+                  background-color: $StrongCyan;
+                  color: $VeryDarkCyan;
+                }
+    
+                #custom {
+                  padding: 10px;
+                  border: none;
+                  border-radius: 5px;
+                  background-color: $LightGrayishCyan;
+                  cursor: pointer;
+                  font-size: 20px;
+                  font-weight: 700;
+                  width: 8vw;
+                }
+                #custom::placeholder {
+                  text-transform: uppercase;
+                  font-size: 1em;
+                }
+              }
+            }
+    
+            .people {
+              display: grid;
+              padding: 0 0 1em;
+              gap: 10px;
+              height: 15vh;
+              position: relative;
+    
+              label {
+                color: $DarkGrayishCyan;
+                font-size: 20px;
+                font-weight: 700;
+              }
+    
+              .icon {
+                position: absolute;
+                top: 50px;
+                left: 10px;
+              }
+    
+              input {
+                padding: 10px 0;
+                border: none;
+                background-color: $LightGrayishCyan;
+                cursor: pointer;
+                border-radius: 5px;
+                outline: none;
+              }
+              input:hover {
+                border: 2px solid $StrongCyan;
+              }
+              input::placeholder {
+                padding-left: 1em;
+                color: $DarkGrayishCyan;
+                font-size: 24px;
+              }
+              input[value^="1"] {
+                color: $DarkGrayishCyan;
+                font-size: 24px;
+                text-align: end;
+                width: 26vw;
+              }
+            }
+          }
+    
+          .right-content {
+            background-color: $VeryDarkCyan;
+            display: grid;
+            padding: 1em 1em 2em;
+            border-radius: 20px;
+            width: 100%;
+    
+            .tip-amount {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              margin-bottom: 1em;
+    
+              label {
+                color: #fff;
+                font-weight: 700;
+                cursor: text;
+              }
+    
+              label::after {
+                content: "/ person";
+                position: absolute;
+                left: 1px;
+                top: 50px;
+                color: $DarkGrayishCyan2;
+              }
+    
+              input {
+                width: 50%;
+                padding: 10px 0;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                border-radius: 5px;
+                outline: none;
+              }
+              input::placeholder {
+                position: absolute;
+                right: 0;
+                color: $StrongCyan;
+                font-size: 24px;
+              }
+            }
+    
+            .total-amount {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              position: relative;
+              margin-bottom: 1em;
+    
+              label {
+                color: #fff;
+                font-weight: 700;
+                cursor: text;
+              }
+    
+              label::after {
+                content: "/ person";
+                position: absolute;
+                left: 1px;
+                top: 50px;
+                color: $DarkGrayishCyan2;
+              }
+    
+              input {
+                width: 50%;
+                padding: 10px 0;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                border-radius: 5px;
+                outline: none;
+              }
+              input::placeholder {
+                position: absolute;
+                right: 0;
+                color: $StrongCyan;
+                font-size: 24px;
+              }
+            }
+    
+            .btn-reset {
+              margin-top: 1em;
+              padding: 0;
+              background-color: hsla(172, 67%, 45%, 0.5);
+              color: $VeryDarkCyan;
+              border: none;
+              border-radius: 5px;
+              font-size: 24px;
+              text-transform: uppercase;
+              font-weight: 700;
+              height: 8vh;
+            }
+            .btn-reset:hover {
+              background-color: $StrongCyan;
+            }
+          }
+        }
+      }
+}
